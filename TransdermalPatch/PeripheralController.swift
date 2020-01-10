@@ -97,7 +97,7 @@ extension PeripheralController: CBPeripheralDelegate {
     func decodeData(value: Data) {
         
         for index in 0 ..< value.count where index % 2 == 0 {
-            let tempValue = Int((value[index] << 8) + value[index + 1])
+            let tempValue = Int(Int16((value[index]) << 8 + Int16(value[index + 1]))
             
             let doubleValue = Double(tempValue)
             
